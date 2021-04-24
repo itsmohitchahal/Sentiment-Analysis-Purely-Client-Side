@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">=
+    <meta name="author" content="Mohit Chahal">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="main.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <title>Sentiment Analysis</title>
+
+  </head>
+  <body>
+  <div class="container">
+    <div>
+      <h1 class="text-center">Basic Sentiment Analysis</h1>
+    </div>
+    <div>
+      <div>
+        <h3 class="text-center">Enter your text here</h3>
+        <textarea id="pre-text" class="code" placeholder="Copy & Paste your text to be analyzed here"></textarea>
+      </div>
+      <div> <button type="button" class="btn btn-info" id="hit-click">Analyze</button></div>
+      <div id="result" class="disappear">
+        <div>
+          <h3 class="text-center" id="generated-code-title">Analysis</h3>
+        </div>
+      <div class="m-5">
+        <h4 class="text-center">Positive vs Negative Scores</h4>
+        <div class="d-flex flex-wrap justify-content-center">
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-success text-light text-center h5 mb-0">
+              Positive Score
+            </div>
+            <div class="card-body">
+              <span><strong> Absolute Score: 3</strong></span> <br>
+              <span><strong> Proportion: 50%</strong></span>
+            </div>
+          </div>
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-secondary text-light text-center h5 mb-0">
+              Positive vs Negative Score
+            </div>
+            <div class="card-body">
+              <span><strong class="align-middle"> Proportion: 50%</strong></span>
+            </div>
+          </div>
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-warning  text-center h5 mb-0">
+              Negative Score
+            </div>
+            <div class="card-body">
+              <span><strong> Absolute Score: 3</strong></span> <br>
+              <span><strong> Proportion: 50%</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="m-5" id="other-variables">
+        <h4 class="text-center">Other Variables</h4>
+        <div class="d-flex flex-wrap justify-content-center">
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-info text-light text-center h5 mb-0">
+              Uncertainty Score
+            </div>
+            <div class="card-body">
+              <span><strong> Absolute Score: 3</strong></span> <br>
+              <span><strong> Proportion: 50%</strong></span>
+            </div>
+          </div>
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-info text-light text-center h5 mb-0">
+              Litigous Score
+            </div>
+            <div class="card-body">
+              <span><strong> Absolute Score: 3</strong></span> <br>
+              <span><strong> Proportion: 50%</strong></span>
+            </div>
+          </div>
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-info text-light text-center h5 mb-0">
+              Constraining Score
+            </div>
+            <div class="card-body">
+              <span><strong> Absolute Score: 3</strong></span> <br>
+              <span><strong> Proportion %: 50%</strong></span>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="m-5" id="grammar">
+        <h4 class="text-center">Grammar Scores</h4>
+        <div class="d-flex flex-wrap justify-content-center">
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-dark text-light text-center h5 mb-0">
+              Weak Modal Score
+            </div>
+            <div class="card-body">
+              <span><strong> Absolute Score: 3</strong></span> <br>
+              <span><strong> Proportion: 50%</strong></span>
+            </div>
+          </div>
+          <div class="card ml-3 mr-3 mb-1 bg-light text-center text-dark p-3 justify-content-center" style="max-width: 34rem; min-width: 20rem">
+            <div class="card-header bg-dark text-light text-center h5 mb-0">
+              Strong Modal Score
+            </div>
+            <div class="card-body">
+              <span><strong> Absolute Score: 3</strong></span> <br>
+              <span><strong> Proportion: 50%</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div> 
+    <div class="row">
+      <footer class="col-lg-12 footer">
+        <span>Made by <a href="https://github.com/itsmohitchahal/">Mohit Chahal</a>.</span>
+        <span>See source code <a href="https://github.com/itsmohitchahal/Sentiment-Analysis-Purely-Client-Side" target="_blank">here</a></span>
+
+      </footer>
+    </div>
+  </div>
+
+  </body>
+</html>
