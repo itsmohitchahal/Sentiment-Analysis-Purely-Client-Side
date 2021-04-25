@@ -30,13 +30,16 @@ function b_search(word, list) {
 function analyse_text(text) {
     // console.log(text); // so we're getting the text
     $.getJSON("https://raw.githubusercontent.com/itsmohitchahal/Sentiment-Analysis-Purely-Client-Side-/main/analysis_paramters.json", function(json) {
-        // console.log(json); // this will show the info it in firebug console
-        // console.log(json['stopwords']);
-        var words = text.split(/\W+/).filter(function(token) {
+        var temp_words = text.split(/\W+/).filter(function(token) {
             token = token.toUpperCase();
             return token.length >= 2 && json['stopwords'].indexOf(token) == -1;
         });
-        console.log(words);
+        words = []
+        for (var i = 0; i < temp_words.length; i++) {
+            if (/^[a-zA-Z]{3,}$/.test(temp_words[i])) {
+                words.push(temp_words[i]);
+            }  
+        }
         // calculating scores
         var result = {
             'positive': 0,
@@ -49,10 +52,8 @@ function analyse_text(text) {
         }
         for (var i = 0; i < words.length; i++) {
             if (b_search(words[i].toUpperCase(), json['positive'])) {
-                console.log('positive' + words[i]);
                 result['positive']++;
             } else if (b_search(words[i].toUpperCase(), json['negative'])) {
-                console.log('negative' + words[i]);
                 result['negative']++;
             } else if (b_search(words[i].toUpperCase(), json['litigous'])) {
                 result['litigous']++;
@@ -111,6 +112,7 @@ function analyse_text(text) {
     });
 }
 
+// it all starts here
 $(document).ready(function(){
     $('#hit-click').click(function(){
         analyse_text($('#pre-text').val())
